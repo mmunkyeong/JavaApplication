@@ -1,5 +1,6 @@
 package com.ll.exam;
 
+import com.ll.TestUt;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.ll.exam1.MyArrayList;
@@ -41,9 +42,18 @@ public class MyArrayListTest {
     void t4() {
         MyArrayList<String> list = new MyArrayList<>();
 
+        String[] data= TestUt.getFieldValue(list,"data",null);
+        assertThat(data.length).isEqualTo(2);
+
         list.add("apple");
         list.add("grape");
+
+        data=TestUt.getFieldValue(list,"data",null);
+        assertThat(data.length).isEqualTo(2);
         list.add("lemon");
+
+        data = TestUt.getFieldValue(list, "data", null);
+        assertThat(data.length).isEqualTo(4);
 
         assertThat(list.size()).isEqualTo(3);
     }
