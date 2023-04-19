@@ -27,9 +27,11 @@ public class MyArrayListTest {
     @DisplayName("get(1)")
     void t3() {
         MyArrayList<String> list=new MyArrayList<>();
-        list.add("apple");
-        list.add("grape");
-        assertThat(list.get(1)).isEqualTo("grape");
+        list.add("apple"); //data[0]
+        list.add("grape"); //data[1]
+
+        assertThat(list.get(0)).isEqualTo(" apple");//data[0]
+        assertThat(list.get(1)).isEqualTo("grape");//data[1]
         // get은 이렇게 작동 되어야 한다. 전제하여 만들기
     }
 }
