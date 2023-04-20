@@ -30,7 +30,7 @@ public class MyArrayList<T> {
             newData[i]=data[i];
         }
 
-        //기존 창고와 계약을 해지
+        // 기존 창고와 계약을 해지
         // 더 이상 리스트가 기존 배열을 가리키지 않도록 하여, 자연스럽게 가비지컬렉팅이 되도록 한다
         data=newData;
     }
