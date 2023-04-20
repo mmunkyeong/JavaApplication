@@ -1,5 +1,7 @@
 package org.ll.exam1;
 
+import java.util.stream.IntStream;
+
 public class MyArrayList<T> {
     public boolean debug=false;
     private String[] data;
@@ -55,4 +57,18 @@ public class MyArrayList<T> {
         return data[index];
     }
 
+    public int indexOf(String element){
+        for(int i=0; i<data.length; i++){
+            if(element.equals(data[i])) return i;
+        }
+        return -1;
+
+     /*   IntStream.range(0,size)
+                .mapToObj(index->new Object[] {index, data[index]})
+                .filter(arr->element.equals(arr[1]))
+                .mapToInt(arr->(int)arr[0])
+                .findFirst()
+                .orElse(-1);
+    */
+    }
 }
