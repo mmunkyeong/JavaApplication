@@ -2,7 +2,7 @@ package org.ll.exam2;
 
 public class MyHashMap<K, V> {
     private int size=0;
-    private final Entry[] entries;
+    private  Entry[] entries;
 
     private static class Entry<K, V> {
         K key;
@@ -25,11 +25,35 @@ public class MyHashMap<K, V> {
     }
 
     public V put(K key,V value){
+        makeNewArrayIfNotEnough();
         entries[size] = new Entry<>(key, value);
         size++;
         return null;
     }
 
+    private void makeNewArrayIfNotEnough(){
+        if(isNotEnough()){
+            makeNewArray();
+        }
+    }
+
+    private void makeNewArray(){
+        // 새 배열을 만든다
+        Entry[] newEntries=new Entry[entries.length*2];
+
+        // 기존 창고에 있던 물품들을 전부 새 창고로 옮긴다.
+        for(int i=0; i<entries.length; i++){
+            newEntries[i]=entries[i];
+        }
+
+        // 기존 창고와 계약 해지
+        // 더 이상 리스트가 기존 배열을 가리키지 않도록 하여, 자연스럽게 가비지 컬렉팅
+        entries=newEntries;
+    }
+
+    private boolean isNotEnough() {
+        return size >= entries.length;
+    }
     public V get(K key) {
         // keys 배열에서 검색
         int indexOfKey=indexOfKey(key);

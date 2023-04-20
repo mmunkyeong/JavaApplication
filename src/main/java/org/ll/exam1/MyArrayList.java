@@ -71,7 +71,7 @@ public class MyArrayList<T> {
     }
     private void makeNewDataIfNotEnough() {
         //먼저 공간이 부족한지 확인
-        if (ifNotEnought()) {
+        if (isNotEnought()) {
             makeNewData();
         }
     }
@@ -93,7 +93,7 @@ public class MyArrayList<T> {
         data = newData;
     }
 
-    private boolean ifNotEnought() {
+    private boolean isNotEnought() {
         return size >= data.length;
     }
 
