@@ -34,11 +34,14 @@ public class MyArrayListTest {
     void t03() {
         MyArrayList<String> list=new MyArrayList<>();
 
-        list.add("apple"); //data[0]
-        list.add("grape"); //data[1]
+        list.add("apple");
+        list.add("grape");
 
-        assertThat(list.get(0)).isEqualTo("apple");//data[0]
-        assertThat(list.get(1)).isEqualTo("grape");//data[1]
+        String e0 = (String) list.get(0);
+        String e1 = (String) list.get(1);
+
+        assertThat(e0).isEqualTo("apple");//data[0]
+        assertThat(e1).isEqualTo("grape");//data[1]
         // get은 이렇게 작동 되어야 한다. 전제하여 만들기
     }
 
@@ -118,5 +121,19 @@ public class MyArrayListTest {
         list.add(false);
 
         assertThat(list.size()).isEqualTo(2);
+    }
+    @Test
+    @DisplayName("get(1)")
+    void t10() {
+        MyArrayList<Boolean> list = new MyArrayList<>();
+
+        list.add(true);
+        list.add(false);
+
+        boolean e0=(boolean)list.get(0);
+        boolean e1=(boolean)list.get(1);
+
+        assertThat(e0).isEqualTo(true);
+        assertThat(e1).isEqualTo(false);
     }
 }
