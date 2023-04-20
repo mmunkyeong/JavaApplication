@@ -84,4 +84,7 @@ public class MyArrayList<T> {
                 .orElse(-1);
     */
     }
+    public boolean contains(T element) {
+        return indexOf(element) != -1;
+    }
 }
