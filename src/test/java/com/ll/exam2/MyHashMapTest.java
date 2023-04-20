@@ -67,4 +67,23 @@ public class MyHashMapTest {
 
         assertThat(map.size()).isEqualTo(2);
     }
+
+    @Test
+    @DisplayName("remove")
+    void t06() {
+        MyHashMap<String, Integer> map = new MyHashMap<>();
+
+        map.put("철수", 22);
+        map.put("영희", 23);
+
+        assertThat(
+                map.remove("영희")
+        ).isEqualTo(23);
+
+        assertThat(
+                map.remove("영숙")
+        ).isEqualTo(null);
+
+        assertThat(map.size()).isEqualTo(1);
+    }
 }
