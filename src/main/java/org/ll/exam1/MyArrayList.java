@@ -42,6 +42,26 @@ public class MyArrayList<T> {
         return true; // 항상 true를 리턴
     }
 
+    public T set(int index, T element) {
+        T old = (T) data[index];
+
+        data[index] = element;
+
+        return old;
+    }
+    public T remove(int index) {
+        T old = (T) data[index];
+
+        // 앞에서 부터 자리 이동
+        for (int i = index + 1; i < size; i++) {
+            data[i - 1] = data[i];
+        }
+
+        size--;
+
+        return old;
+    }
+
     public void makeEmptyIndex(int index){
         //맨뒤 승객부터 뒤로 1칸씩 이동
 
