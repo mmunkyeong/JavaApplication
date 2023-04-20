@@ -1,8 +1,17 @@
 package org.ll.exam1;
 
 public class MyArrayList<T> {
-    private String[] data=new String[2];
+    public boolean debug=false;
+    private String[] data;
     private int size=0;
+
+    public MyArrayList(){
+        this(2);
+    }
+    public MyArrayList(int dataLength){
+        data=new String[dataLength];
+    }
+
     public int size(){
         return size;
     }
@@ -30,6 +39,9 @@ public class MyArrayList<T> {
             newData[i]=data[i];
         }
 
+        if(debug){
+            System.out.printf("배열크기 증가 : %d => %d\n", data.length, newData.length);
+        }
         // 기존 창고와 계약을 해지
         // 더 이상 리스트가 기존 배열을 가리키지 않도록 하여, 자연스럽게 가비지컬렉팅이 되도록 한다
         data=newData;
