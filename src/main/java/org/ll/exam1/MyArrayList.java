@@ -57,6 +57,7 @@ public class MyArrayList<T> {
             data[i - 1] = data[i];
         }
 
+        data[size-1]=null;
         size--;
 
         return old;
